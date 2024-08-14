@@ -4,7 +4,10 @@ require('dotenv').config();
 const dbURI = process.env.MONGO_URI;
 
 const connect = () => {
-  mongoose.connect(dbURI).then(() => {
+  mongoose.connect(dbURI,{
+    useNewUrlParser: true,
+
+  }).then(() => {
     console.log('Connected to MongoDB');
   }).catch(err => {
     console.error('Failed to connect to MongoDB', err);
